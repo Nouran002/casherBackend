@@ -175,21 +175,7 @@ namespace casher.Properties.Controller
             _context.SaveChanges();
             return Ok("Done");
         }
-        //[HttpPost("AddImage")]
-        //public ActionResult AddImage(IFormFile file)
-        //{
-        //    string fullPath = Directory.GetCurrentDirectory() + "/Photos";
-
-        //    string name = DateTime.Now.Ticks.ToString() + file.FileName;
-
-        //    string filepath = fullPath + "/" + name;
-
-        //    var stream = new FileStream(filepath, FileMode.Create);
-
-        //    file.CopyTo(stream);
-
-        //    return Ok(name);
-        //}
+        
         [HttpPost("AddCategory")]
         public ActionResult AddCategory(catDetails c)
         {
@@ -267,6 +253,23 @@ namespace casher.Properties.Controller
             _context.SaveChanges();
             return Ok("Done");
         }
+        [HttpPost("AddImage")]
+        public ActionResult AddImage(IFormFile file)
+        {
+            string fullPath = Directory.GetCurrentDirectory() + "/Images";
+
+            string name = DateTime.Now.Ticks.ToString() + file.FileName;
+
+            string filepath = fullPath + "/" + name;
+
+            var stream = new FileStream(filepath, FileMode.Create);
+
+            file.CopyTo(stream);
+
+            return Ok(name);
+        }
+
 
     }
+
 }

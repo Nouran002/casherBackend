@@ -34,28 +34,26 @@ namespace casher
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                      Path.Combine(env.ContentRootPath, "Images")),
+                RequestPath = "/Images"
+            });
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.Json", "swagger");
             });
-            app.UseRouting();
-            //app.UseStaticFiles();
-            //app.UseStaticFiles(new StaticFileOptions
-            //{
-            //    FileProvider = new PhysicalFileProvider(
-            //          Path.Combine(env.ContentRootPath, "Photos")),
-            //    RequestPath = "/Photos"
-            //});
+            
+            
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                //endpoints.MapGet("/", async context =>
-                //{
-                //    await context.Response.WriteAsync("Hello World!");
-                //});
+               
             });
         }
     }
