@@ -42,7 +42,12 @@ namespace casher.Properties.Controller
             }
             return Ok(admin);
         }
-       
+        [HttpGet("GetAllAdmins")]
+        public ActionResult GetAllAdmins()
+        {
+            return Ok(_context.admins.ToList());
+        }
+
         [HttpPost("AddProduct")]
         public ActionResult AddProduct(ProductDetails p,int catId)
         {
