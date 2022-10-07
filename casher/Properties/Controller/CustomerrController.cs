@@ -47,32 +47,33 @@ namespace casher.Properties.Controller
         {
             return Ok(_context.products.ToList());
         }
-        [HttpPost("createOrder")]
-        public ActionResult createOrder(OrderDetails d)
-        {
-            Orderr o = new Orderr();
-            o.date = DateTime.Now;
-            o.CustomerId = d.CustomerId;
-            _context.orders.Add(o);
-            float sum = 0f;
-            foreach (var item in d.list)
-            {
-                Dto u = new Dto();
-                //u.productId = item.productId;
-                u.quantity = item.quantity;
-                u.sellingPrice = item.sellingPrice;
-                u.Discount = item.Discount;
-                u.DiscountPrice = item.DiscountPrice;
-                u.totalPrice = item.totalPrice;
-                //u.OrderId = item.OrderId;
-                _context.orderItems.Add(u);
-                sum = sum + ((float)u.quantity * u.totalPrice);
-                _context.orderItems.Add(u);
-            }
-            o.totalPayment = sum;
-            _context.orders.Add(o);
-            _context.SaveChanges();
-            return Ok("Done");
-        }
+        //[HttpPost("createOrder")]
+        //public ActionResult createOrder(OrderDetails d)
+        //{
+        //    Orderr o = new Orderr();
+        //    o.date = DateTime.Now;
+        //    o.CustomerId = d.CustomerId;
+        //    _context.orders.Add(o);
+        //    float sum = 0f;
+        //    foreach (var item in d.list)
+        //    {
+        //        Dto u = new Dto();
+        //        List<Dto> li = new List<Dto>();
+        //        //u.productId = item.productId;
+        //        u.quantity = item.quantity;
+        //        u.sellingPrice = item.sellingPrice;
+        //        u.Discount = item.Discount;
+        //        u.DiscountPrice = item.DiscountPrice;
+        //        u.totalPrice = item.totalPrice;
+        //        //u.OrderId = item.OrderId;
+        //        li.Add(u);
+        //        sum = sum + ((float)u.quantity * u.totalPrice);
+        //        li.Add(u);
+        //    }
+        //    o.totalPayment = sum;
+        //    _context.orders.Add(o);
+        //    _context.SaveChanges();
+        //    return Ok("Done");
+        //}
     }
 }
