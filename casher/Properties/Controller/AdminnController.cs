@@ -107,6 +107,18 @@ namespace casher.Properties.Controller
             _context.SaveChanges();
             return Ok("Done");
         }
+        [HttpGet("GetCustomer")]
+        public ActionResult GetCustomer(int id)
+        {
+            var cust = _context.customers.Where(s => s.id == id).FirstOrDefault();
+            if (cust == null)
+            {
+                return BadRequest("there is no customer with this id");
+            }
+            return Ok(cust);
+
+        }
+
         [HttpGet("GetAllCustomers")]
         public ActionResult getAllCustomers()
         {
@@ -114,6 +126,7 @@ namespace casher.Properties.Controller
                 .ThenInclude(s => s.category).ToList();
             return Ok(List);
         }
+        
         [HttpPost("UpdateCustomer")]
             public ActionResult UpdateCustomer([FromQuery] int id, [FromBody] CustomerRegister reg)
         {
