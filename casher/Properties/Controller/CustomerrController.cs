@@ -58,17 +58,14 @@ namespace casher.Properties.Controller
         //    foreach (var item in d.list)
         //    {
         //        Dto u = new Dto();
-        //        List<Dto> li = new List<Dto>();
-        //        //u.productId = item.productId;
         //        u.quantity = item.quantity;
         //        u.sellingPrice = item.sellingPrice;
         //        u.Discount = item.Discount;
         //        u.DiscountPrice = item.DiscountPrice;
         //        u.totalPrice = item.totalPrice;
-        //        //u.OrderId = item.OrderId;
-        //        li.Add(u);
+        //        _context.dtos.Add(u);
         //        sum = sum + ((float)u.quantity * u.totalPrice);
-        //        li.Add(u);
+        //        _context.dtos.Add(u);
         //    }
         //    o.totalPayment = sum;
         //    _context.orders.Add(o);

@@ -72,7 +72,7 @@ namespace casher.Properties.Controller
             
 
         }
-        [HttpPost("UpdateProduct")]
+        [HttpPut("UpdateProduct")]
         public ActionResult UpdateProduct([FromQuery] int id, [FromBody] ProductDetails det)
         {
             var l = _context.products.AsNoTracking().Where(c => c.id == id).FirstOrDefault();
@@ -95,7 +95,7 @@ namespace casher.Properties.Controller
             _context.SaveChanges();
             return Ok("Done");
         }
-        [HttpPost("DeleteProduct")]
+        [HttpDelete("DeleteProduct")]
         public ActionResult DeleteProduct([FromForm] int id)
         {
             var product = _context.products.Where(s => s.id == id).FirstOrDefault();
@@ -127,7 +127,7 @@ namespace casher.Properties.Controller
             return Ok(List);
         }
         
-        [HttpPost("UpdateCustomer")]
+        [HttpPut("UpdateCustomer")]
             public ActionResult UpdateCustomer([FromQuery] int id, [FromBody] CustomerRegister reg)
         {
             var u = _context.customers.AsNoTracking().Where(c => c.id == id).FirstOrDefault();
@@ -150,7 +150,7 @@ namespace casher.Properties.Controller
 
         }
 
-        [HttpPost("DeleteCustomer")]
+        [HttpDelete("DeleteCustomer")]
         public ActionResult DeleteCustomer([FromForm] int id)
         {
             var customer = _context.customers.Where(s => s.id == id).FirstOrDefault();
@@ -162,7 +162,7 @@ namespace casher.Properties.Controller
             _context.SaveChanges();
             return Ok("Done");
         }
-        [HttpPost("UpdateCategory")]
+        [HttpPut("UpdateCategory")]
         public ActionResult UpdateCategory([FromQuery] int id, [FromBody] catDetails cat)
         {
             var u = _context.categories.AsNoTracking().Where(c => c.id == id).FirstOrDefault();
@@ -181,7 +181,7 @@ namespace casher.Properties.Controller
             return Ok("Done");
 
         }
-        [HttpPost("DeleteCategory")]
+        [HttpDelete("DeleteCategory")]
         public ActionResult DeleteCategory([FromForm] int id)
         {
             var category = _context.products.Where(s => s.id == id).FirstOrDefault();
@@ -217,7 +217,7 @@ namespace casher.Properties.Controller
             return Ok(_context.categories.ToList());
         }
         [HttpPost("AddInStore")]
-        public ActionResult AddInStore(Storee t)
+        public ActionResult AddInStore(sto t)
         {
             bool o = _context.stores.Any(m => m.id == t.id);
             if (o == true)
@@ -240,7 +240,7 @@ namespace casher.Properties.Controller
             return Ok(_context.stores.ToList());
         }
         
-        [HttpPost("UpdateStore")]
+        [HttpPut("UpdateStore")]
         public ActionResult UpdateStore([FromQuery] int id)
         {
             var u = _context.stores.AsNoTracking().Where(c => c.id == id).FirstOrDefault();
@@ -259,7 +259,7 @@ namespace casher.Properties.Controller
             _context.SaveChanges();
             return Ok("Done");
         }
-        [HttpPost("DeleteFromStore")]
+        [HttpDelete("DeleteFromStore")]
         public ActionResult DeleteFromStore([FromForm] int id)
         {
             var store = _context.stores.Where(s => s.id == id).FirstOrDefault();

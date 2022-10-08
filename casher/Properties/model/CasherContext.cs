@@ -15,6 +15,7 @@ namespace casher.Properties.model
         public DbSet<Categoryy> categories { get; set; }
         public DbSet<Storee> stores { get; set; }
         public DbSet<Adminn> admins { get; set; }
+        public DbSet<Dto> dtos { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=MEDOMATEBOOKD;

@@ -5,6 +5,13 @@ using System.Threading.Tasks;
 
 namespace casher.Properties.model
 {
+    public class sto
+    {
+        public int id { get; set; }
+        public int producttId { get; set; }
+        public int producttQuantity { get; set; }
+
+    }
     public class Storee
     {
         public int id { get; set; }
